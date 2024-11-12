@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+<body>
+    <h1>Welcome to the {{title}} page! </h1>
+
+    {% with messages= get_flashed_messages() %}  <!-- It will get the flashed message (if any) and store it in a variable-->
+        {% if messages %}       <!-- It will check if there is any flashed message or not-->
+            {% for message in messages %}   <!--If Yes, then it will display those-->
+                <div>{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>

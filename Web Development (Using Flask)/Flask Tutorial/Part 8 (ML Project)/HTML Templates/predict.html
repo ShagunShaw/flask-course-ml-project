@@ -1,0 +1,123 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<form action="" method="post">     <!-- method="post" means we want to save our credentials in the database-->
+    {{ form.hidden_tag() }}         <!-- Invoking our CSRF token here -->
+
+    <div>
+        {{form.airline.label}}     <!-- To display the text -->
+        {{form.airline}}           <!-- To display the box-->    
+
+        {% if form.airline.errors %}   <!-- To check if there is any error in the username part after
+                                            being filled out-->
+            {% for error in form.airline.errors %}
+                <div> error </div>      <!--If 'Yes' then display that here-->
+            {% endfor %}
+        {% endif %}
+    </div>
+    <br>
+
+    <div>
+        {{form.date_of_journey.label}}     
+        {{form.date_of_journey}}  
+        {% if form.date_of_journey.errors %}   <!-- In WTForms, the errors property is automatically populated based on the validators you've assigned-->
+            {% for error in form.date_of_journey.errors %}
+                <div> {{error}} </div>     
+            {% endfor %}
+        {% endif %}             
+    </div>
+    <br>
+
+    <div>
+        {{form.source.label}}     
+        {{form.source}}    
+        {% if form.source.errors %}   
+            {% for error in form.source.errors %}
+                <div> error </div>     
+            {% endfor %}
+        {% endif %}           
+    </div>
+    <br>
+
+    <div>
+        {{form.destination.label}}     
+        {{form.destination}}         
+        {% if form.destination.errors %}   
+            {% for error in form.destination.errors %}
+                <div> error </div>     
+            {% endfor %}
+        {% endif %}      
+    </div>
+    <br>
+
+    <div>
+        {{form.dep_time.label}}     
+        {{form.dep_time}}  
+        {% if form.dep_time.errors %}   
+            {% for error in form.dep_time.errors %}
+                <div> error </div>     
+            {% endfor %}
+        {% endif %}             
+    </div>
+    <br>
+
+    <div>
+        {{form.arrival_time.label}}     
+        {{form.arrival_time}}   
+        {% if form.arrival_time.errors %}   
+            {% for error in form.arrival_time.errors %}
+                <div> error </div>     
+            {% endfor %}
+        {% endif %}            
+    </div>
+    <br>
+
+    <div>
+        {{form.duration.label}}     
+        {{form.duration}}   
+        {% if form.duration.errors %}   
+            {% for error in form.duration.errors %}
+                <div> error </div>     
+            {% endfor %}
+        {% endif %}            
+    </div>
+    <br>
+
+    <div>
+        {{form.total_stops.label}}     
+        {{form.total_stops}}   
+        {% if form.total_stops.errors %}   
+            {% for error in form.total_stops.errors %}
+                <div> error </div>     
+            {% endfor %}
+        {% endif %}            
+    </div>
+    <br>
+
+    <div>
+        {{form.additional_info.label}}     
+        {{form.additional_info}}   
+        {% if form.additional_info.errors %}   
+            {% for error in form.additional_info.errors %}
+                <div> error </div>     
+            {% endfor %}
+        {% endif %}            
+    </div>
+    <br>
+
+    <div>{{ form.predict() }}</div>  <!--SubmitField is a type of field in WTForms that generates a submit button. When you 
+                                        access form.submit in the template, you're essentially calling the __call__ method 
+                                        of the SubmitField class to generate the HTML <button> tag, that's why we are using the function brackets only here -->
+    <br>
+    
+    <div>
+        {{ output }}
+    </div>
+
+    <div>
+        <p>Redirect to HomePage? <a href="{{ url_for('home') }}">Click Here.</a></p>
+    </div>
+</form>
+
+{% endblock content %}
