@@ -5,8 +5,8 @@ from wtforms.validators import DataRequired
 
 
 # Getting the data
-train= pd.read_csv("E:/Development Docs/Web Development (Using Flask)/Flask Tutorial/Part 8 (ML Project)/Data/training_data.csv")
-val= pd.read_csv("E:/Development Docs/Web Development (Using Flask)/Flask Tutorial/Part 8 (ML Project)/Data/validation_data.csv")
+train= pd.read_csv("training_data.csv")
+val= pd.read_csv("validation_data.csv")
 x_data= pd.concat([train, val], axis=0)
 x_data= x_data.drop(['Price'], axis=1)
 
