@@ -16,7 +16,7 @@ app.config['SECRET_KEY']= "This_is_your_CSRF_Token_Code"        # Generating our
                           # because here we are woking with WTF forms and it won't work without passing the csrf token to it.
                           # Don't change the word 'SECRET_KEY' here.
 
-model= joblib.load("E:/Development Docs/Web Development (Using Flask)/Flask Tutorial/Part 8 (ML Project)/model.joblib")                          
+model= joblib.load("model.joblib")                          
 
 @app.route("/")
 @app.route("/home")
